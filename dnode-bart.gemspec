@@ -10,4 +10,5 @@ Gem::Specification.new do |s|
     s.extra_rdoc_files = [ 'LICENSE' ]
     s.homepage = 'http://github.com/substack/dnode-bart.rb'
     s.add_dependency 'dnode'
+    s.add_dependency 'bart'
 end

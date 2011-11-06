@@ -1,4 +1,3 @@
-require 'rubygems'
 require 'dnode'
 require 'bart/station'
 
