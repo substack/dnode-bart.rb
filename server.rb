@@ -8,7 +8,19 @@ DNode.new({
         station = Bart::Station.new(name)
         station.load_departures
         if cb.respond_to? :call then
-            cb.call(station.departures)
+            cb.call(station.departures.map { |dep|
+                {
+                    :destination => dep.destination.name,
+                    :estimates => dep.estimates.map { |est|
+                        {
+                            :minutes => est.minutes,
+                            :platform => est.platform,
+                            :direction => est.direction,
+                            :length => est.length,
+                        }
+                    }
+                }
+            })
         end
     end,
 }).listen(5050)
